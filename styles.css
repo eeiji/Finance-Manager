@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.flash {
+    color: red;
+}
+
+.progress-container {
+  background: #eee;
+  width: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.progress-bar {
+  background: green;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  height: 25px;
+  line-height: 25px;
+  transition: width 0.3s ease;
+}
