@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My Goals</h2>
+
+<form action="/goals" method="post" class="mb-4">
+  <input name="name" placeholder="Goal name" required>
+  <input name="target" type="number" step="0.01" placeholder="Target value" required>
+  <input name="deadline" type="date" required>
+  <button type="submit">Add Goal</button>
+</form>
+
+{% if goals %}
+  {% for g in goals %}
+    <div class="goal">
+      <h3>{{ g.name }} — R$ {{ g.target }}</h3>
+      <p>Term: {{ g.deadline }}</p>
+
+      <div class="progress-container">
+        <div class="progress-bar" data-progress="{{ g.progress }}">
+          {{ g.progress }}%
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No registered goals.</p>
+{% endif %}
+
+<!-- Script para aplicar a largura da barra -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".progress-bar").forEach(bar => {
+    const progress = bar.getAttribute("data-progress");
+    bar.style.width = progress + "%";
+  });
+});
+</script>
+
+{% endblock %}

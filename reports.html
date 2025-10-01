@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-4">Financial Reports ({{ year }})</h2>
+
+    <!-- Year Filter -->
+    <form action="/reports" method="post" class="mb-4">
+      <label for="year">Year:</label>
+      <input type="number" name="year" value="{{ year }}" min="2000" max="2100">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <!-- Monthly Chart -->
+    <div class="mb-5">
+      <h4>Incomes vs Expenses (by month)</h4>
+      <div id="monthlyChartContainer" style="height: 400px;">
+      <canvas id="monthlyChart"></canvas>
+    </div>
+
+    <!-- Chart by Category -->
+    <div class="mb-5">
+      <h4>Expenses by Category</h4>
+      <div id="categoryChartContainer" style="height: 400px;">
+      <canvas id="categoryChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script>
+    const monthlyData = {{ monthly | tojson | safe }} || [];
+    const categoriesData = {{ categories | tojson | safe }} || [];
+    renderReports(monthlyData, categoriesData);
+  </script>
+{% endblock %}
+

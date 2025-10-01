@@ -1,0 +1,9 @@
+{% for g in goals %}
+  <h5>{{ g.name }} - {{ g.progress }}%</h5>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar"
+         style="width: {{ g.progress | string }}%"
+         aria-valuenow="{{ g.progress }}" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row text-center">
+    <div class="col-md-4 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h5>Incomes</h5>
+                <h3>$ {{ incomes }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <h5>Expenses</h5>
+                <h3>$ {{ expenses }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5>Balance</h5>
+                <h3>$ {{ balance }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
