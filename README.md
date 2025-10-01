@@ -1,5 +1,5 @@
 # Finance Manager
-#### Video Demo: <https://youtu.be/W3o-XwXQsQU>
+
 #### Description:
 
 The **Finance Manager** is a web application designed to help users organize and monitor their personal finances.
